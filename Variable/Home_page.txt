@@ -1,0 +1,6 @@
+*** Variables ***
+${url}            https://tmhu-shop-qa.azurewebsites.net/
+${search}         xpath=//*[@id="page"]/header/section[1]/div/div[2]/nav/a[1]
+${Input Search}    xpath=//*[@id="searchDropdown"]/div/div[1]/div[1]/div/div/input
+${Click GO}       xpath=//*[@id="searchDropdown"]/div/div[1]/div[2]/button
+${search text}    TORA-MAX

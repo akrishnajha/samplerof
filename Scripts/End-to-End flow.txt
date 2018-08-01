@@ -1,0 +1,97 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Variable/Home_page.txt
+Resource          ../Variable/Search_Page.txt
+Resource          ../Variable/Customer_Information_page.txt
+Resource          ../Variable/Add_delivery_details.txt
+
+*** Test Cases ***
+Open Browser
+    Open Browser    ${url}    googlechrome
+    Maximize Browser Window
+    Capture Page Screenshot
+
+Search for the Product
+    Wait Until Element Is Enabled    ${search}    10s
+    Click Element    ${search}
+    Input Text    ${Input Search}    ${search text}
+    Capture Page Screenshot
+    Click Button    ${Click GO}
+
+Add Searched Product to Cart
+    Sleep    7s
+    Wait Until Element Is Enabled    ${Add to Cart}
+    Click Element    ${Add to Cart}
+    Sleep    7s
+    Input Text    ${Quantity}    5
+    Click Button    ${Update quantity}
+    Wait Until Element Is Enabled    ${Secure Checkout}    10s
+    Click Button    ${Secure Checkout}
+    Capture Page Screenshot
+
+Getting New email id
+    Open Browser    https://temp-mail.org/en/    googlechrome    alias=second
+    Wait Until Element Is Enabled    xpath=//*[@id="click-to-delete"]/span    5s
+    Click Element    xpath=//*[@id="click-to-delete"]/span
+    ${y}=    Get Value    ${a}
+    Close Browser
+    Switch Browser    1
+    Wait Until Element Is Enabled    xpath=//*[@id="check-email"]/div/div/input    10s
+    Input Text    xpath=//*[@id="check-email"]/div/div/input    ${y}
+    Click Button    ${checkout}
+    Capture Page Screenshot
+
+Customer Information page
+    Wait Until Element Is Enabled    ${firstname}
+    Input Text    ${firstname}    Siddharth
+    Input Text    ${lastname}    Jain
+    Input Text    ${Number}    2124924000
+    Select Checkbox    ${Peronal use}
+    Capture Page Screenshot
+    Click Button    ${continue checkout}
+    Sleep    5s
+
+Add delivery details
+    Wait Until Element Is Enabled    ${Street address}    10s
+    Input Text    ${Street address}    30 Rockefeller Plaza
+    Input Text    ${Street address2}    30 Rockefeller Plaza
+    Input Text    ${city}    New York
+    Select From List By Value    ${state}    NY
+    Input Text    ${Postal code}    10112-0015
+    Press Key    ${Postal code}    \\9
+    Wait Until Element Is Enabled    xpath=//*[@id="verified"]    10s
+    Click Element    xpath=//*[@id="verified"]
+    Wait Until Element Is Enabled    ${instruction}    10s
+    Input Text    ${instruction}    Automation Test Delivery Instructions1
+    Wait Until Element Is Enabled    xpath=//*[@id="delivery-form"]/div[5]/div[2]/button    10s
+    Click Button    xpath=//*[@id="delivery-form"]/div[5]/div[2]/button
+    Capture Page Screenshot
+
+Add Payment deails
+    Sleep    10s
+    Sleep    20s
+    Wait Until Element Is Enabled    xpath=//*[@id="billing-form"]/div[3]/div/div[2]/label/span[1]    10s
+    Click Element    xpath=//*[@id="billing-form"]/div[3]/div/div[2]/label/span[1]
+    Wait Until Element Is Enabled    xpath=//*[@id="clone-delivery"]    10s
+    Select Checkbox    xpath=//*[@id="clone-delivery"]
+    Wait Until Element Is Enabled    xpath=//*[@id="company-name"]    10s
+    Input Text    xpath=//*[@id="company-name"]    Deloitte
+    Wait Until Element Is Enabled    xpath=//*[@id="account-contact"]    10s
+    Input Text    xpath=//*[@id="account-contact"]    Deloitte Demo
+    Wait Until Element Is Enabled    xpath=//*[@id="contact-number"]    10s
+    Input Text    xpath=//*[@id="contact-number"]    2124924000
+    Wait Until Element Is Enabled    xpath=//*[@id="contact-email"]    10s
+    Input Text    xpath=//*[@id="contact-email"]    siddjain@deloitte.com
+    Capture Page Screenshot
+    Wait Until Element Is Enabled    xpath=//*[@id="billing-form"]/div[4]/div/form/div/div[2]/div/button    10s
+    Click Button    xpath=//*[@id="billing-form"]/div[4]/div/form/div/div[2]/div/button
+    sleep    10s
+
+Place Order
+    Wait Until Element Is Enabled    xpath=//*[@id="termsConfirm"]    10s
+    Select Checkbox    xpath=//*[@id="termsConfirm"]
+    Sleep    10s
+    Wait Until Element Is Enabled    xpath=//*[@id="page"]/main/div/div[2]/div/div[1]/div[2]/div[5]/div[2]/button    10s
+    Click Button    xpath=//*[@id="page"]/main/div/div[2]/div/div[1]/div[2]/div[5]/div[2]/button
+    Sleep    10s
+    Capture Page Screenshot
