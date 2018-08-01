@@ -1,6 +1,0 @@
-*** Variables ***
-${firstname}      xpath=//*[@id="first-name"]
-${lastname}       xpath=//*[@id="last-name"]
-${Number}         xpath=//*[@id="phone-number"]
-${Peronal use}    xpath=//*[@id="personal-use"]
-${continue checkout}    xpath= //*[@id="page"]/main/div/div[2]/div/div[1]/div[2]/div/div/div[3]/div[2]/button

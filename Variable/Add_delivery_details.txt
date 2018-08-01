@@ -1,7 +1,0 @@
-*** Variables ***
-${Street address}    xpath=//*[@id="street-address"]
-${Street address2}    xpath=//*[@id="address-line-2"]
-${city}           xpath=//*[@id="city"]
-${state}          xpath=//*[@id="state"]
-${Postal code}    xpath=//*[@id="postal-code"]
-${instruction}    xpath=//*[@id="delivery-instructions"]

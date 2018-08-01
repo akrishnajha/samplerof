@@ -1,7 +1,0 @@
-*** Variables ***
-${Add to Cart}    xpath=//*[@id="page"]/main/div/div/section/div/div[2]/div/div[2]/div[2]/div/button
-${Quantity}       xpath=//*[@id="cartDropdown"]/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div/input
-${Update quantity}    xpath=//*[@id="cartDropdown"]/div[2]/div[2]/div/div/div[2]/div/div[2]/div[2]/button
-${Secure Checkout}    xpath=//*[@id="cartDropdown"]/div[2]/div[3]/div/button
-${a}              xpath=//*[@id="mail"]
-${checkout}       xpath=//*[@id="check-email"]/button
