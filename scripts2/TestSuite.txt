@@ -1,0 +1,12 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${url}		http://www.google.com
+
+*** Test Cases ***
+TC001
+	Open Browser		${url}		chrome
+	Wait Until Element Is Enabled		id=lst-ib
+	Input Text		id=lst-ib	Avtar
+	Capture Page Screenshot
